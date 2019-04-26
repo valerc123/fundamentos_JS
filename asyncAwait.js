@@ -28,7 +28,7 @@ async function obtenerPersonajes(){
 	try{
 	var personajes = await Promise.all(promesas)
 	console.log(personajes)
-	}catch(id){
+	} catch(id){
 		onError(id)
 	}
 }
