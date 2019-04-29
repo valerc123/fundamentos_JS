@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Memoización: ahorrando cómputo</title>
+</head>
+<body>
+    <script>
+    /*
+     !6 = 6* 5 * 4 * 3 * 2 * 1 = 720
+     !12 = 12 * 11 * 10 * 9 * … * 1 == 12 * 11 * 10 * 9 * 8 * 7 * !6
+    */
+
+    function factorial(n){
+        if (n < 0){
+        return'Entrada no válida, solo numeros positivos'
+        }
+        if(!this.cache)   //existe una cache 
+        {//si no esta, lo creamos
+            this.cache = {}
+        }
+        if(this.cache[n])
+        {
+            return this.cache[n]
+        }
+        if(n === 1)
+        {
+            return 1
+        }
+        this.cache[n] = n * factorial(n-1)
+        return this.cache[n]
+        //guardar en una cache interna los resultados que va dado el factorial 
+    }
+    </script>
+</body>
+</html>
