@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cambiando de contexto al llamar a una función</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script>
+
+        //Cambiando de contexto al llamar una función
+        const val = {
+            nombre: 'valen',
+            apellido: 'rua',
+            edad: 23
+        }
+
+        function saludar(saludo = "Hola! ")
+        {
+            console.log(`${saludo} mi nombre es ${this.nombre}`);
+        }
+
+        // const saludarVale = saludar.bind(val, 'holi') //el this queda atado al contexto del obj
+
+        // setTimeout(saludarVale, 1000)
+
+        //saludar.call(val, 'jeloou!')
+        saludar.apply(val, ['jeloou!']) //los parametros se pasan dentro de un array
+    </script>
+</body>
+</html>
